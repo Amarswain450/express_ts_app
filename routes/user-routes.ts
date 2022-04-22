@@ -1,9 +1,9 @@
 import express from 'express';
+import { registerController } from '../controllers/user-controller';
+import { registrationValidation } from '../validations/user-validation';
 
 const router:express.Router = express.Router();
 
-router.get('/users', (req: express.Request, res: express.Response) => {
-    res.status(200).json({name: "amar"});
-});
+router.post('/register', registrationValidation, registerController);
 
 export default router;
